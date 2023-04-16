@@ -26,6 +26,24 @@ namespace ipk_sniffer
         {
             for (int i = 0; i < args.Length; i++)
             {
+                //HELP PRINTOUT
+                if (args[i] == "--help")
+                {
+                    Console.WriteLine("Usage:");
+                    Console.WriteLine("./ipk-sniffer {-i | --interface <interface>} {-p <port>} (-t | --tcp) (-u | --udp) (--arp) (--icmp4) (--icmp6) (--igmp) (--mld) (--ndp) {-n <packetNum>}");
+                    Console.WriteLine("-i | --interface <interface> sets the the name of the interface from which the packets will be sniffed. If not specified, a list of all available interfaces will be printed and the program");
+                    Console.WriteLine("-p <port>                    sets the port number, if not specified, the whole <0,65536> port band is used.");
+                    Console.WriteLine("-t | --tcp                   adds TCP packets to the packet filter.");
+                    Console.WriteLine("-u | --udp                   adds UDP packets to the packet filter.");
+                    Console.WriteLine("--arp                        adds ARP packets to the packet filter.");
+                    Console.WriteLine("--icmp4                      adds ICMP4 packets to the packet filter.");
+                    Console.WriteLine("--icmp6                      adds ICMP6 packets to the packet filter.");
+                    Console.WriteLine("--igmp                       adds IGMP packets to the packet filter.");
+                    Console.WriteLine("--mld                        adds MLD packets to the packet filter.");
+                    Console.WriteLine("--ndp                        adds NDP packets to the packet filter.");
+                    Console.WriteLine("-n <packetNum>               specifies the number of packets to be caught, defaults to 1 if not specified.");
+                    Environment.Exit(0);
+                }
                 //INTERFACE
                 if (args[i] == "-i" || args[i] == "--interface")
                 {
