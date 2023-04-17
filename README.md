@@ -31,14 +31,14 @@ SharpPcap 5.4.0 (https://github.com/dotpcap/sharppcap)
 
 ## Implementation details
 The program consists of two files, `argParce.cs`, the function of which is to parse input arguments and hand them over to `sniffer.cs`. If the interface has not been specified, this code prints out a list of all network interfaces and terminates. If the interface has been specified, a packet filter is created based on input arguments and the device is opened for packet sniffing. The `SharpPcap` NuGet functions `ParsePacket` parses the raw packet, which is then extracted by the `Extract` function based on the packet type. The packet header is printed out with the following data, if present in the packet: 
-* `timestamp`
-* `src MAC`
-* `dst MAC`
-* `frame length`
-* `src IP`
-* `dst IP`
-* `src port`
-* `dst port`
+* `timestamp`    - Time stamp of the packet in RFC 3339 Format
+* `src MAC`      - Physical address of the source device
+* `dst MAC`      - Physical address of the destination device
+* `frame length` - Length of packet in bytes
+* `src IP`       - IP address of the source device
+* `dst IP`       - IP address of the destination device
+* `src port`     - Port of the source device
+* `dst port`     - Port of the destination device
 
 After that, the packet payload is printed in HEX and ASCII. When a specified or default number of packets has been caught, the program ceases its function. 
 The program's source code is object oriented and contains the two following classes with their respective attributes and methods: 
@@ -52,3 +52,8 @@ The program's source code is object oriented and contains the two following clas
         `_packetNum`, `_capturedNum`, `_captureDevice`
     * Methods:
         `Main`, `DeviceOnPacketArrival`, `FilterConstructor`, `PrintHeader`, `PrintData`, `FormattedMac`, `HandleCancelKeyPress`
+
+
+## Testing Examples
+OS: NixOS 22.11 (Reference testing machine)\
+Platform: AMD64
