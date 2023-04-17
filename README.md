@@ -30,7 +30,7 @@ $ ./out/ipk-sniffer [-i | --interface <interface>] {-p <port> [-t | --tcp][-u | 
 SharpPcap 5.4.0 (https://github.com/dotpcap/sharppcap)
 
 ## Implementation details
-The program consists of two files, `argParce.cs`, the function of which is to parse input arguments and hand them over to `sniffer.cs`. If the interface has not been specified, this code prints out a list of all network interfaces and terminates. If the interface has been specified, a packet filter is created based on input arguments and the device is opened for packet sniffing. The `SharpPcap` NuGet functions `ParsePacket` parses the raw packet, which is then extracted by the `Extract` function based on the packet type. The packet header is printed out with the following data, if present in the packet:
+The program consists of two files, `argParce.cs`, the function of which is to parse input arguments and hand them over to `sniffer.cs`. If the interface has not been specified, this code prints out a list of all network interfaces and terminates. If the interface has been specified, a packet filter is created based on input arguments and the device is opened for packet sniffing. The `SharpPcap` NuGet functions `ParsePacket` parses the raw packet, which is then extracted by the `Extract` function based on the packet type. The packet header is printed out with the following data, if present in the packet: \
 * timestamp
 * src MAC
 * dst MAC
@@ -43,11 +43,11 @@ After that, the packet payload is printed in HEX and ASCII. When a specified or 
 The program's source code is object oriented and contains the two following classes with their respective attributes and methods: 
 * class `ArgParser`:
     * Attributes:
-        * `Device`, `Port`, `Tcp`, `Udp`, `Arp`, `Icmp4`, `Icmp6`, `Ndp`, `Igmp`, `Mld`, `PacketNum`
+        `Device`, `Port`, `Tcp`, `Udp`, `Arp`, `Icmp4`, `Icmp6`, `Ndp`, `Igmp`, `Mld`, `PacketNum`
     * Methods:
-        * `AnyTrue`, `ArgParser`
+        `AnyTrue`, `ArgParser`
 * class `Sniffer`:
     * Attributes:
-        * `_packetNum`, `_capturedNum`, `_captureDevice`
+        `_packetNum`, `_capturedNum`, `_captureDevice`
     * Methods:
-        * `Main`, `DeviceOnPacketArrival`, `FilterConstructor`, `PrintHeader`, `PrintData`, `FormattedMac`, `HandleCancelKeyPress`
+        `Main`, `DeviceOnPacketArrival`, `FilterConstructor`, `PrintHeader`, `PrintData`, `FormattedMac`, `HandleCancelKeyPress`
