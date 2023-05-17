@@ -1,5 +1,6 @@
 # IPK 2023 Project 2
 ### Author: Daniel Blaško (xblask05)
+### Final Evaluation: 12.25/20 (Most likely incorrect NDP, MLD and IGMP packet sniffing, use with caution)
 <hr>
 
 ## Description
